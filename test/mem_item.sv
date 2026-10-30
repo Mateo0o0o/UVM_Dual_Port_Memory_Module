@@ -3,7 +3,7 @@
 
     class mem_item extends uvm_sequence_item;
         
-             bit        rst_n;
+             bit        rst_n = 1;
         rand mem_addr   addr;
         rand mem_data   wdata;
              mem_data   rdata;

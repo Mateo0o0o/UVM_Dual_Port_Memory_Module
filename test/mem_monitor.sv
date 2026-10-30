@@ -33,7 +33,7 @@
                     begin
                         item = mem_item::type_id::create("item", this);
                         item.rst_n  = vif.rst_n;  
-                        analysis_port.write(item);
+                        if (!item.rst_n) analysis_port.write(item);
                     end
 
                     begin    

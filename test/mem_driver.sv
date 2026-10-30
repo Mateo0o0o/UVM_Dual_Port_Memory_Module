@@ -39,20 +39,30 @@
 
             `uvm_info("DEBUG", item.convert2string(), UVM_NONE)
 
-            @(negedge vif.clk);
-            vif.addr    <= item.addr;
-            vif.wdata   <= item.wdata;
-            vif.wr_en   <= item.wr_en;
-            vif.rd_en   <= item.rd_en;
-            @(negedge vif.clk);
+            fork
+                
+                begin
+                    vif.rst_n   <= item.rst_n;
+                end
 
-            vif.wr_en   <= 0;
-            vif.rd_en   <= 0;
+                begin
+                    @(negedge vif.clk);
+                    vif.addr    <= item.addr;
+                    vif.wdata   <= item.wdata;
+                    vif.wr_en   <= item.wr_en;
+                    vif.rd_en   <= item.rd_en;
+                    @(negedge vif.clk);
 
-            if(item.rd_en) begin
-                @(negedge vif.clk);
-                item.rdata = vif.rdata;
-            end
+                    vif.wr_en   <= 0;
+                    vif.rd_en   <= 0;
+
+                    if(item.rd_en) begin
+                        @(negedge vif.clk);
+                        item.rdata = vif.rdata;
+                    end
+                end
+
+            join
 
         endtask
     endclass //mem_driver extends uvm_driver#(mem_item)

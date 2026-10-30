@@ -1,6 +1,9 @@
 +define+UVM_NO_DPI
-//--trace-fst
-//--coverage
++define+TEST_NUM=100
+--trace-fst
+--coverage
+
+config.vlt
 
 uvm_pkg.sv
 uvm_macros.svh
@@ -13,6 +16,7 @@ mem_typedefs.sv
 test/mem_item.sv
 test/mem_agent_config.sv
 test/mem_sequence_base.sv
+test/mem_sequence_reset.sv
 test/mem_sequence_wr.sv
 test/mem_sequence_random.sv
 test/mem_driver.sv

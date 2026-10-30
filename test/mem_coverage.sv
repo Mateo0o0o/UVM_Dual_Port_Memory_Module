@@ -6,10 +6,19 @@
         `uvm_component_utils(mem_coverage)
 
         covergroup mem_transaction;
-            coverpoint trans.addr;
-            coverpoint trans.wdata;
-            coverpoint trans.wr_en;
-            coverpoint trans.rd_en;
+            coverpoint trans.rst_n {
+                bins rst_0 = {0};
+            }
+            coverpoint trans.addr iff (trans.rst_n) {
+                bins low_addr   = {[0               : (2**`AWIDTH/2)-1]};
+                bins high_addr  = {[(2**`AWIDTH/2)  : (2**`AWIDTH)  -1]};
+                bins all0_addr  = {0};
+                bins all1_addr  = {{`AWIDTH{1}}};
+            }
+            coverpoint trans.wdata iff (trans.rst_n);
+            write_c : coverpoint trans.wr_en iff (trans.rst_n);
+            read_c  : coverpoint trans.rd_en iff (trans.rst_n);
+            write_x_read : cross write_c, read_c;
         endgroup
 
         mem_item trans;
