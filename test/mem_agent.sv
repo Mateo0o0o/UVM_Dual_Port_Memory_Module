@@ -23,6 +23,7 @@
             driver       = mem_driver::type_id::create("driver", this); 
             monitor      = mem_monitor::type_id::create("monitor", this); 
             coverage     = mem_coverage::type_id::create("coverage", this); 
+        
         endfunction
 
         virtual function void connect_phase(uvm_phase phase);

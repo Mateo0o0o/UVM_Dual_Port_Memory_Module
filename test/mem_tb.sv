@@ -1,4 +1,4 @@
-module tb;
+module mem_tb;
     
     import uvm_pkg::*;
     `include "uvm_macros.svh"

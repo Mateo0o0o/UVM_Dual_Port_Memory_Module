@@ -12,9 +12,7 @@
             analysis_imp = new("analysis_imp", this);
         endfunction //new()
 
-
         // Reference Model
-
         mem_data expected_mem [`AWIDTH-1:0];          // Memory Array with size of mem_data and addresses of 2^AWIDTH
         bit      written_addr [`AWIDTH-1:0]; 
 

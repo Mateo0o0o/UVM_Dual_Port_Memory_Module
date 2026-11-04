@@ -9,9 +9,9 @@ uvm_pkg.sv
 uvm_macros.svh
 
 test/mem_test_pkg.sv
-mem_param.sv
-mem_if.sv
-mem_typedefs.sv
+include/mem_param.sv
+interface/mem_if.sv
+include/mem_typedefs.sv
 
 test/mem_item.sv
 test/mem_agent_config.sv
@@ -30,4 +30,4 @@ test/mem_test_reg_access.sv
 
 design/mem.sv
 
-tb.sv
+test/mem_tb.sv

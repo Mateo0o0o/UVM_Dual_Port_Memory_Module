@@ -1,8 +1,11 @@
-module mem (
+module mem #(
+    parameter DWIDTH = `DWIDTH,
+    parameter AWIDTH = `AWIDTH
+)(
     mem_if.dut mif
 );
     
-    mem_data mem_arr [`AWIDTH-1:0];
+    logic [DWIDTH-1:0] mem_arr [AWIDTH-1:0];
 
     always_ff @( posedge mif.clk or negedge mif.rst_n ) begin
         

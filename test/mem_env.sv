@@ -23,7 +23,6 @@
 
         virtual function void connect_phase(uvm_phase phase);
             super.connect_phase(phase);
-
             agent.monitor.analysis_port.connect(scoreboard.analysis_imp);            
         endfunction
 
