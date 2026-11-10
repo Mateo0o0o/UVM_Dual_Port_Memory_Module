@@ -1,6 +1,8 @@
 coverage_html
 obj_dir
 coverage*
-vrun
+__pycache__
+test_logs
+waveforms
 *.fst
 *.surf

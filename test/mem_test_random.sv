@@ -1,9 +1,9 @@
-`ifndef MEM_TEST_REG_ACCESS_SV
-    `define MEM_TEST_REG_ACCESS_SV
+`ifndef MEM_TEST_RANDOM_SV
+    `define MEM_TEST_RANDOM_SV
 
-    class mem_test_reg_access extends mem_test_base;
+    class mem_test_random extends mem_test_base;
         
-        `uvm_component_utils(mem_test_reg_access)
+        `uvm_component_utils(mem_test_random)
 
         function new(string name = "", uvm_component parent);
             super.new(name, parent);
@@ -15,14 +15,9 @@
             `uvm_info("DEBUG", "This is the start of the test", UVM_LOW)
 
             begin
-                mem_sequence_wr seq;
-                seq = mem_sequence_wr::type_id::create("seq");
-                seq.start(env.agent.sequencer);
-            end
-
-            begin
                 mem_sequence_random seq;
                 seq = mem_sequence_random::type_id::create("seq");
+                seq.set_iterations(`TEST_NUM);
                 seq.start(env.agent.sequencer);
             end
 

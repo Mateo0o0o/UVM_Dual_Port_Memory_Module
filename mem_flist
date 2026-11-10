@@ -1,7 +1,4 @@
 +define+UVM_NO_DPI
-+define+TEST_NUM=100
---trace-fst
---coverage
 
 config.vlt
 
@@ -13,20 +10,27 @@ include/mem_param.sv
 interface/mem_if.sv
 include/mem_typedefs.sv
 
-test/mem_item.sv
-test/mem_agent_config.sv
-test/mem_sequence_base.sv
-test/mem_sequence_reset.sv
-test/mem_sequence_wr.sv
-test/mem_sequence_random.sv
-test/mem_driver.sv
-test/mem_monitor.sv
-test/mem_coverage.sv
-test/mem_agent.sv
-test/mem_scoreboard.sv
-test/mem_env.sv
+test/env/mem_item.sv
+test/env/mem_agent_config.sv
+test/env/mem_driver.sv
+test/env/mem_monitor.sv
+test/env/mem_coverage.sv
+test/env/mem_agent.sv
+test/env/mem_scoreboard.sv
+test/env/mem_env.sv
+
+test/sequences/mem_sequence_base.sv
+test/sequences/mem_sequence_reset.sv
+test/sequences/mem_sequence_wr.sv
+test/sequences/mem_sequence_overwrite.sv
+test/sequences/mem_sequence_random.sv
+
 test/mem_test_base.sv
-test/mem_test_reg_access.sv
+test/mem_test_wr.sv
+test/mem_test_overwrite.sv
+test/mem_test_random.sv
+test/mem_test_all_seq.sv
+test/mem_test_all_random.sv
 
 design/mem.sv
 
