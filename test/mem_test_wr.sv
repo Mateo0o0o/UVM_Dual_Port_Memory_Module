@@ -12,7 +12,7 @@
         virtual task run_phase(uvm_phase phase);
 
             phase.raise_objection(this, "TEST DONE");
-            `uvm_info("DEBUG", "This is the start of the test", UVM_LOW)
+            `uvm_info("TEST STATUS", "This is the start of the test", UVM_LOW)
 
             fork
                 begin
@@ -32,7 +32,7 @@
             join
 
 
-            `uvm_info("DEBUG", "This is the end of the test", UVM_LOW)
+            `uvm_info("TEST STATUS", "This is the end of the test", UVM_LOW)
             phase.drop_objection(this, "TEST DONE");
         endtask
 
