@@ -37,7 +37,7 @@
 
         virtual task drive_sigs(mem_vif vif, mem_item item);
 
-            `uvm_info("DEBUG", item.convert2string(), UVM_NONE)
+            `uvm_info("DEBUG", item.convert2string(), UVM_HIGH)
 
             fork
                 
