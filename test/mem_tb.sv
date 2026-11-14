@@ -3,6 +3,9 @@ module mem_tb;
     import uvm_pkg::*;
     `include "uvm_macros.svh"
     import mem_test_pkg::*;
+    
+    string wave_name="mem";
+    
     // Clock Signal
     bit clk;
 
@@ -22,7 +25,12 @@ module mem_tb;
     end
 
     initial begin
-        $dumpfile("mem.fst");
+
+        if ($value$plusargs("WAVE_NAME=%s", wave_name)) begin end
+        
+        wave_name = $sformatf("%s.fst", wave_name);
+
+        $dumpfile(wave_name);
         $dumpvars;
 
         uvm_config_db#(mem_vif)::set(null, "uvm_test_top*", "vif", memif);
